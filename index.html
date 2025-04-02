@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Arkansas County Card View</title>
+    <link rel="stylesheet" href="./styles/styles.css" />
+  </head>
+  <body>
+    <h1>Arkansas CBP Dashboard</h1>
+    <div id="instructions-wrapper">
+      <button id="toggleInstructions">Show Instructions</button>
+      <div id="instructions" style="display: none">
+        <h2>How to Use the Dashboard</h2>
+        <ul>
+          <li>
+            <strong>Select a Year</strong> – View service totals by provider for
+            any year between 2020–2024.
+          </li>
+          <li>
+            <strong>Filter Mode</strong> – Choose to filter by
+            <em>gender</em> or <em>age group</em>, not both.
+          </li>
+          <li>
+            <strong>Gender Filter</strong> – Select "Male", "Female", or "Total"
+            to filter provider data.
+          </li>
+          <li>
+            <strong>Age Group Filter</strong> – Choose an age like 13, 16, or
+            group like "12 and younger".
+          </li>
+          <li>
+            <strong>Provider Filter</strong> – Select one or more providers to
+            show only their data.
+          </li>
+          <li>
+            <strong>Reset Button</strong> – Returns everything back to default
+            (Gender mode, all providers, Year 2020).
+          </li>
+          <li>
+            <strong>County Cards</strong> – Show each county a provider serves,
+            with:
+            <ul>
+              <li>
+                <strong>Total Served:</strong> Full count from the provider (not
+                split between counties)
+              </li>
+              <li>
+                <strong>Census Data:</strong> Estimated youth population for the
+                selected age group
+              </li>
+              <li>
+                <strong>Breakdown:</strong> Male/Female population, and source
+                group (10–14 or 15–19)
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <p>
+          <em
+            >Note: Gender is ignored when age is selected, as provider data does
+            not contain age-by-gender breakdowns.</em
+          >
+        </p>
+      </div>
+    </div>
+
+    <div id="filters">
+      <label for="yearSelect">Year:</label>
+      <select id="yearSelect">
+        <option value="2020">2020</option>
+        <option value="2021">2021</option>
+        <option value="2022">2022</option>
+        <option value="2023">2023</option>
+        <option value="2024" selected>2024</option>
+      </select>
+
+      <label for="providerSelect">Provider:</label>
+      <select id="providerSelect" multiple></select>
+
+      <div id="filterMode">
+        <label
+          ><input type="radio" name="mode" value="gender" checked /> Filter by
+          Gender</label
+        >
+        <label
+          ><input type="radio" name="mode" value="age" /> Filter by Age
+          Group</label
+        >
+      </div>
+
+      <div id="controlButtons">
+        <button id="resetBtn">Reset</button>
+      </div>
+
+      <label for="genderSelect">Gender:</label>
+      <select id="genderSelect">
+        <option value="total">Total</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+
+      <label for="ageSelect">Age Group:</label>
+      <select id="ageSelect">
+        <option value="all">All</option>
+        <option value="12_and_younger"><12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18_and_older">18></option>
+      </select>
+    </div>
+
+    <div id="cardContainer"></div>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script type="module" src="./scripts/script.js"></script>
+    <script type="module" src="./scripts/index.js"></script>
+  </body>
+</html>

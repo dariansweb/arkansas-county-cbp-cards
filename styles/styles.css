@@ -1,0 +1,260 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f1f3f6;
+  margin: 0;
+  padding: 20px;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 2rem;
+  color: #2a2a2a;
+}
+
+#filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+  background: #ffffff;
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+select,
+button,
+input[type="radio"] {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+}
+
+select:focus,
+button:focus {
+  outline: none;
+  border-color: #007BFF;
+}
+
+button {
+  background-color: #007BFF;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+#cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.county-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+  padding: 1.25rem;
+  width: 300px;
+  transition: transform 0.25s ease-in-out, box-shadow 0.25s ease;
+  border-left: 6px solid #007BFF;
+}
+
+.county-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.county-name {
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+
+.demographics, .providers, .census {
+  font-size: 0.95rem;
+  margin-top: 0.75rem;
+  line-height: 1.4;
+}
+
+.demographics strong,
+.providers strong,
+.census strong {
+  display: inline-block;
+  margin-bottom: 0.25rem;
+  color: #444;
+}
+
+.providers ul,
+.census ul {
+  padding-left: 1.2rem;
+  margin: 0;
+}
+
+.providers li,
+.census li {
+  list-style-type: circle;
+  color: #444;
+  margin-bottom: 0.25rem;
+}
+
+.census em {
+  display: block;
+  font-size: 0.85rem;
+  color: #888;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+#filterMode {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+#filterMode label {
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+#controlButtons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+#controlButtons button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  background-color: #6c757d;
+}
+
+#controlButtons button:hover {
+  background-color: #5a6268;
+}
+
+#instructions-wrapper {
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  text-align: center;
+}
+
+#instructions {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 1.5rem;
+  margin-top: 1rem;
+  border-radius: 10px;
+  text-align: left;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  font-size: 0.95rem;
+}
+
+#instructions h2 {
+  margin-top: 0;
+  color: #007BFF;
+  font-size: 1.25rem;
+}
+
+#instructions ul {
+  padding-left: 1.2rem;
+}
+
+#toggleInstructions {
+  background-color: #17a2b8;
+  border: none;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+#toggleInstructions:hover {
+  background-color: #138496;
+}
+
+@media screen and (max-width: 1024px) {
+  #filters {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #filterMode,
+  #controlButtons {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  #instructions-wrapper {
+    padding: 0 1rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #cardContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .county-card {
+    width: 90%;
+    max-width: 400px;
+  }
+
+  select,
+  button,
+  input[type="radio"] {
+    width: 100%;
+    max-width: 300px;
+    margin: 0.25rem 0;
+  }
+
+  #filters {
+    padding: 10px;
+    gap: 0.5rem;
+  }
+
+  #toggleInstructions {
+    width: 100%;
+    max-width: 250px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .county-card {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+
+  #instructions h2 {
+    font-size: 1.1rem;
+  }
+
+  #instructions ul li {
+    margin-bottom: 0.5rem;
+  }
+}
