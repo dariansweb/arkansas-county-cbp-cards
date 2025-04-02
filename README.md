@@ -5,6 +5,20 @@ A dynamic, data-driven visualization tool for analyzing youth services provided 
 Built to inform stakeholders, empower analysts, and present census-aligned service data in a card-based, interactive UI.
 
 ---
+# 📜 The Codex of Functionality
+
+> In the Year of the Debug, amidst the Trials of Modal Madness,  
+> A Dev of Singular Will forged this Artifact.  
+
+> It runs. It renders.  
+> It bows to no linter.
+
+### ✨ You want elegance?  
+### Then fork it, **champ**. 😎
+
+> _Thus spoke the Builder._
+
+---
 
 ## 🚀 Features
 
