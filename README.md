@@ -4,6 +4,7 @@ A dynamic, data-driven visualization tool for analyzing youth services provided 
 
 Built to inform stakeholders, empower analysts, and present census-aligned service data in a card-based, interactive UI.
 
+DEMO: https://dariansweb.github.io/arkansas-county-cbp-cards/
 ---
 # 📜 The Codex of Functionality
 
