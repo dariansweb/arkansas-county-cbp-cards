@@ -63,22 +63,25 @@ function renderCards() {
   const breakdown = getProviderYearData(year, gender, age, selectedProviders);
 
   cardContainer.innerHTML = "";
-  Object.entries(breakdown).forEach(([county, data]) => {
+  const sortedEntries = Object.entries(breakdown).sort(([aCounty], [bCounty]) =>
+    aCounty.localeCompare(bCounty)
+  );
+  sortedEntries.forEach(([county, data]) => {
     const censusData = getCensusForAgeGroup(county, age);
     const censusLabel = getCensusLabel(age);
-    
+  
     const div = document.createElement("div");
     div.className = "county-card";
+  
+    const providerName = Object.keys(data.providers).join(", ");
+    const totalServed = Object.values(data.providers).reduce((sum, val) => sum + val, 0);
+  
     div.innerHTML = `
+      <div class="provider-badge">${providerName}</div>
       <div class="county-name">${county}</div>
-      <div class="demographics"><strong>Total All Counties:</strong> ${data.total.toFixed(
-        1
-      )}</div>
-      <div class="providers"><strong>Providers:</strong>
-        <ul>${Object.entries(data.providers)
-          .map(([p, v]) => `<li>${p}: ${v.toFixed(1)}</li>`)
-          .join("")}</ul>
-      </div>
+  
+      <div class="demographics"><strong>${providerName}'s Yearly Total:</strong> ${totalServed}</div>
+  
       <div class="census">
         <strong>${censusLabel}:</strong>
         <ul>
@@ -89,8 +92,10 @@ function renderCards() {
         <em>Population for age group: ${censusData.total}</em>
       </div>
     `;
+  
     cardContainer.appendChild(div);
   });
+  
 }
 
 // Ensure only one dropdown is active on initial load
@@ -102,11 +107,19 @@ function enforceInitialFilterMode() {
 
 function getCensusLabel(ageGroup) {
   switch (ageGroup) {
-    case "12_and_younger": return "Census (≤12)";
-    case "13": case "14": return `Census (age ${ageGroup})`;
-    case "15": case "16": case "17": return `Census (age ${ageGroup})`;
-    case "18_and_older": return "Census (≥18)";
-    default: return "Census (ages 10–19)";
+    case "12_and_younger":
+      return "Census (≤12)";
+    case "13":
+    case "14":
+      return `Census (age ${ageGroup})`;
+    case "15":
+    case "16":
+    case "17":
+      return `Census (age ${ageGroup})`;
+    case "18_and_older":
+      return "Census (≥18)";
+    default:
+      return "Census (ages 10–19)";
   }
 }
 

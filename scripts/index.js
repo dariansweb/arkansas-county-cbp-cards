@@ -1,3 +1,4 @@
+// 🧭 Instructions Toggle
 const instructionsBtn = document.getElementById("toggleInstructions");
 const instructionsDiv = document.getElementById("instructions");
 
@@ -7,36 +8,35 @@ instructionsBtn.addEventListener("click", () => {
   instructionsBtn.textContent = isVisible ? "Show Instructions" : "Hide Instructions";
 });
 
+// 🌀 Filter Logic
+const modeRadios = document.querySelectorAll('input[name="mode"]');
+const ageSelect = document.getElementById("ageSelect");
+const genderSelect = document.getElementById("genderSelect");
 
-const filterRadios = document.querySelectorAll('input[name="mode"]');
-const clearBtn = document.getElementById("clearBtn");
-const resetBtn = document.getElementById("resetBtn");
-
-// Toggle gender/age dropdowns
-filterRadios.forEach((radio) => {
+// Listen for filter mode changes (radio buttons)
+modeRadios.forEach((radio) => {
   radio.addEventListener("change", () => {
     const mode = document.querySelector('input[name="mode"]:checked').value;
-    genderSelect.disabled = mode !== "gender";
-    ageSelect.disabled = mode !== "age";
+
+    if (mode === "age") {
+      ageSelect.disabled = false;
+      genderSelect.disabled = true;
+    } else {
+      ageSelect.disabled = true;
+      genderSelect.disabled = false;
+    }
+
+    renderCards(); // Refresh UI with new filter state
   });
 });
 
-// Reset everything to default state and re-render
+// ♻️ Reset Button Logic
+const resetBtn = document.getElementById("resetBtn");
+const yearSelect = document.getElementById("yearSelect");
+const providerSelect = document.getElementById("providerSelect");
+
 resetBtn.addEventListener("click", () => {
-  // Reset year
-  yearSelect.selectedIndex = 0;
-
-  // Reset filter mode to gender
-  document.querySelector('input[value="gender"]').checked = true;
-  genderSelect.disabled = false;
-  ageSelect.disabled = true;
-
-  // Reset dropdowns
-  genderSelect.value = "total";
-  ageSelect.value = "all";
-
-  // Select all providers
-  Array.from(providerSelect.options).forEach((opt) => (opt.selected = true));
-
-  renderCards();
+  window.location.reload();
 });
+
+

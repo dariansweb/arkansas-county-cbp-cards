@@ -6,7 +6,8 @@
     <link rel="stylesheet" href="./styles/styles.css" />
   </head>
   <body>
-    <h1>Arkansas CBP Dashboard</h1>
+    <h1 id="dashboard-title">Juvenile Justice Information Dashboard</h1>
+
     <div id="instructions-wrapper">
       <button id="toggleInstructions">Show Instructions</button>
       <div id="instructions" style="display: none">
@@ -63,8 +64,8 @@
         </p>
       </div>
     </div>
-
-    <div id="filters">
+    <div id="filterRow">
+      <div class="filter-group">
       <label for="yearSelect">Year:</label>
       <select id="yearSelect">
         <option value="2020">2020</option>
@@ -78,40 +79,47 @@
       <select id="providerSelect" multiple></select>
 
       <div id="filterMode">
-        <label
-          ><input type="radio" name="mode" value="gender" checked /> Filter by
-          Gender</label
-        >
-        <label
-          ><input type="radio" name="mode" value="age" /> Filter by Age
-          Group</label
-        >
-      </div>
 
+          <div id="filterControls">
+            <!-- AGE OPTION -->
+            <div class="filter-option">
+              <label>
+                <input type="radio" name="mode" value="age" />
+                Age
+              </label>
+              <select id="ageSelect" disabled>
+                <option value="all">All</option>
+                <option value="12_and_younger">&lt;12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18_and_older">&gt;18</option>
+              </select>
+            </div>
+          
+            <!-- GENDER OPTION -->
+            <div class="filter-option">
+              <label>
+                <input type="radio" name="mode" value="gender" checked />
+                Gender
+              </label>
+              <select id="genderSelect">
+                <option value="total">Total</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            </div>
+          </div>
+          
       <div id="controlButtons">
         <button id="resetBtn">Reset</button>
       </div>
 
-      <label for="genderSelect">Gender:</label>
-      <select id="genderSelect">
-        <option value="total">Total</option>
-        <option value="male">Male</option>
-        <option value="female">Female</option>
-      </select>
-
-      <label for="ageSelect">Age Group:</label>
-      <select id="ageSelect">
-        <option value="all">All</option>
-        <option value="12_and_younger"><12</option>
-        <option value="13">13</option>
-        <option value="14">14</option>
-        <option value="15">15</option>
-        <option value="16">16</option>
-        <option value="17">17</option>
-        <option value="18_and_older">18></option>
-      </select>
     </div>
-
+  </div>
+</div>
     <div id="cardContainer"></div>
 
     <script src="https://d3js.org/d3.v7.min.js"></script>
