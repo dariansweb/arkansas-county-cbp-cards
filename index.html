@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="./styles/styles.css" />
   </head>
   <body>
-    <h1 id="dashboard-title">Juvenile Justice Information Dashboard</h1>
+    <h1 id="dashboard-title">DYS CBP US Census Dashboard</h1>
 
     <div id="instructions-wrapper">
       <button id="toggleInstructions">Show Instructions</button>
@@ -24,6 +24,12 @@
           <li>
             <strong>Gender Filter</strong> – Select "Male", "Female", or "Total"
             to filter provider data.
+            <p>
+              <strong>Provider Selection:</strong> On desktop, hold
+              <kbd>Ctrl</kbd> (or <kbd>Cmd</kbd> on Mac) to select multiple
+              providers. On mobile, simply tap to select or deselect multiple
+              entries.
+            </p>
           </li>
           <li>
             <strong>Age Group Filter</strong> – Choose an age like 13, 16, or
@@ -66,20 +72,15 @@
     </div>
     <div id="filterRow">
       <div class="filter-group">
-      <label for="yearSelect">Year:</label>
-      <select id="yearSelect">
-        <option value="2020">2020</option>
-        <option value="2021">2021</option>
-        <option value="2022">2022</option>
-        <option value="2023">2023</option>
-        <option value="2024" selected>2024</option>
-      </select>
-
-      <label for="providerSelect">Provider:</label>
-      <select id="providerSelect" multiple></select>
-
-      <div id="filterMode">
-
+        <label for="yearSelect">Year:</label>
+        <select id="yearSelect">
+          <option value="2020">2020</option>
+          <option value="2021">2021</option>
+          <option value="2022">2022</option>
+          <option value="2023">2023</option>
+          <option value="2024" selected>2024</option>
+        </select>
+        <div id="filterMode">
           <div id="filterControls">
             <!-- AGE OPTION -->
             <div class="filter-option">
@@ -98,7 +99,7 @@
                 <option value="18_and_older">&gt;18</option>
               </select>
             </div>
-          
+
             <!-- GENDER OPTION -->
             <div class="filter-option">
               <label>
@@ -112,14 +113,14 @@
               </select>
             </div>
           </div>
-          
-      <div id="controlButtons">
-        <button id="resetBtn">Reset</button>
+        </div>
+        <label for="providerSelect">Provider:</label>
+        <select id="providerSelect" multiple></select>
+        <div id="controlButtons">
+          <button id="resetBtn">Reset</button>
+        </div>
       </div>
-
     </div>
-  </div>
-</div>
     <div id="cardContainer"></div>
 
     <script src="https://d3js.org/d3.v7.min.js"></script>

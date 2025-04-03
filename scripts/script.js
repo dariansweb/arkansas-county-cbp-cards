@@ -80,10 +80,10 @@ function renderCards() {
       <div class="provider-badge">${providerName}</div>
       <div class="county-name">${county}</div>
   
-      <div class="demographics"><strong>${providerName}'s Yearly Total:</strong> ${totalServed}</div>
+      <div class="demographics">Provider's District Total:</strong> ${totalServed}</div>
   
       <div class="census">
-        <strong>${censusLabel}:</strong>
+        <strong>U.S. County ${censusLabel}:</strong>
         <ul>
           <li>Total: ${censusData.total}</li>
           <li>Male: ${censusData.male}</li>
